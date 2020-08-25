@@ -1,6 +1,6 @@
 # What is this action for?
 
-:point_right: **Describe here what the action should do** :point_left:
+This action allows you to upload
 
 # How to use it?
 
@@ -16,8 +16,24 @@ jobs:
     - uses: actions/checkout@v2
     - name: {YOUR-STEP-NAME}
       uses: kaskadi/action-cc-reporter@master
+      with:
+        format: {REPORT-FORMAT}
+        output: {OUTPUT-FILE}
+        report: {REPORT-FILE}
+      env:
+        CC_TEST_REPORTER_ID: ${{ secrets.{YOUR-CODE-CLIMATE-REPORTER-ID} }}
+        GIT_BRANCH: {DESIRED-GIT-BRANCH}
+        GIT_COMMIT: {DESIRED-GIT-COMMIT-SHA}
 ```
 
-:point_down: **Here goes any extra details on how to use the action (environment variables/inputs description for example)** :point_down:
-
 **Note:** everything contained in single curly brackets (`{ }`) needs to be replaced by your desired values
+
+**Inputs:**
+- `format` **[optional]**: defines the format used by your report _(default: `lcov`)_
+- `ouput` **[optional]**: defines the output file where the output is written while uploading _(default: `coverage/codeclimate.json`)_
+- `report` **[optional]**: defines the report file to upload _(default: `coverage/lcov.info`)_
+
+**Environment variables:**
+- `CC_TEST_REPORTER_ID` **[required]**: the reporter ID for your repository (see _Code Climate_)
+- `GIT_BRANCH` **[required]**: the branch you want your report to refer to _(default: branch from which the action is running inside of the runner)_
+- `GIT_COMMIT` **[required]**: the commit SHA you want your report to refer to _(default: SHA of the commit that triggered the workflow)_
