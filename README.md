@@ -29,11 +29,15 @@ jobs:
 **Note:** everything contained in single curly brackets (`{ }`) needs to be replaced by your desired values
 
 **Inputs:**
-- `format` **[optional]**: defines the format used by your report _(default: `lcov`)_
-- `ouput` **[optional]**: defines the output file where the output is written while uploading _(default: `coverage/codeclimate.json`)_
-- `report` **[optional]**: defines the report file to upload _(default: `coverage/lcov.info`)_
+|   Input  | Required |           Default           | Description                          |
+|:--------:|:--------:|:---------------------------:|--------------------------------------|
+| `format` |    No    |            `lcov`           | Format of your coverage report       |
+|  `ouput` |    No    | `coverage/codeclimate.json` | Output file for the upload operation |
+| `report` |    No    |     `coverage/lcov.info`    | Report file to upload                |
 
 **Environment variables:**
-- `CC_TEST_REPORTER_ID` **[required]**: the reporter ID for your repository (see _Code Climate_)
-- `GIT_BRANCH` **[required]**: the branch you want your report to refer to _(default: branch from which the action is running inside of the runner)_
-- `GIT_COMMIT` **[required]**: the commit SHA you want your report to refer to _(default: SHA of the commit that triggered the workflow)_
+|        Variable       | Required | Description                                 |
+|:---------------------:|:--------:|---------------------------------------------|
+| `CC_TEST_REPORTER_ID` |    Yes   | Reporter ID associated with your repository |
+|      `GIT_BRANCH`     |    Yes   | Branch you want your report to refer to     |
+|      `GIT_COMMIT`     |    Yes   | Commit SHA you want your report to refer to |
