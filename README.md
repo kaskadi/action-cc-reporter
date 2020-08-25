@@ -1,6 +1,6 @@
 # What is this action for?
 
-This action allows you to upload coverage report to (_Code Climate_)[https://codeclimate.com/].
+This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/).
 
 # How to use it?
 
