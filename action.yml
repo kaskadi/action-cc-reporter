@@ -1,7 +1,39 @@
 name: 'action-cc-reporter'
-description: ''
+description: 'a GitHub action that uploads test coverage reports to Code Climate'
+inputs:
+  format:
+    description: 'Format of the report to upload'
+    required: false
+    default: 'lcov'
+  output:
+    description: 'Path to the output file'
+    required: false
+    default: 'coverage/codeclimate.json'
+  report:
+    description: 'Path to the report file'
+    required: false
+    default: 'coverage/lcov.info'
 runs:
-  using: 'node12'
-  pre: 'src/pre.js'
-  main: 'src/main.js'
-  post: 'src/post.js'
+  using: "composite"
+  steps:
+    - name: Retrieve CodeClimate reporter
+      run: |
+        echo "Downloading CodeClimate reporter binaries..."
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+      shell: bash
+    - name: Configurate reporter
+      run: |
+        echo "Configurating test reporter..."
+        ./cc-test-reporter format-coverage -t ${{ inputs.format }} -o ${{ inputs.output }} ${{ inputs.report }}
+      shell: bash
+    - name: Upload report
+      run: |
+        echo "Uploading reports to Code Climate..."
+        ./cc-test-reporter upload-coverage
+      shell: bash
+    - name: Cleanup
+      run: |
+        echo "Removing reporter binaries..."
+        rm cc-test-reporter
+      shell: bash
