@@ -3,15 +3,15 @@ description: 'a GitHub action that uploads test coverage reports to Code Climate
 inputs:
   format:
     description: 'Format of the report to upload'
-    required: true
+    required: false
     default: 'lcov'
   output:
     description: 'Path to the output file'
-    required: true
+    required: false
     default: 'coverage/codeclimate.json'
   report:
     description: 'Path to the report file'
-    required: true
+    required: false
     default: 'coverage/lcov.info'
 runs:
   using: "composite"
