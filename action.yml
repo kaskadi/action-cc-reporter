@@ -1,4 +1,4 @@
-name: 'template-action'
+name: 'action-cc-reporter'
 description: ''
 runs:
   using: 'node12'
