@@ -1,18 +1,28 @@
 name: 'action-cc-reporter'
-description: 'a GitHub action that uploads test coverage reports to Code Climate'
+description: 'This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/)'
 inputs:
   format:
-    description: 'Format of the report to upload'
+    description: 'Format of the coverage report to upload'
     required: false
     default: 'lcov'
   output:
-    description: 'Path to the output file'
+    description: 'Output file for the upload operation'
     required: false
     default: 'coverage/codeclimate.json'
   report:
-    description: 'Path to the report file'
+    description: 'Report file to upload'
     required: false
     default: 'coverage/lcov.info'
+env:
+  CC_TEST_REPORTER_ID:
+    description: 'Code Climate reporter ID'
+    required: true
+  GIT_BRANCH:
+    description: 'Branch that the coverage report refers to'
+    required: true
+  GIT_COMMIT:
+    description: 'Commit SHA that the coverage report refers to'
+    required: true
 runs:
   using: "composite"
   steps:
