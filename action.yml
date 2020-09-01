@@ -1,5 +1,5 @@
 name: 'action-cc-reporter'
-description: 'This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/)'
+description: 'This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/).'
 inputs:
   format:
     description: 'Format of the coverage report to upload'
