@@ -1,6 +1,6 @@
 # What is this action for?
 
-This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/).
+This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/)
 
 # How to use it?
 
@@ -17,27 +17,27 @@ jobs:
     - name: {YOUR-STEP-NAME}
       uses: kaskadi/action-cc-reporter@master
       with:
-        format: {REPORT-FORMAT}
-        output: {OUTPUT-FILE}
-        report: {REPORT-FILE}
+        format: {FORMAT-VALUE}
+        output: {OUTPUT-VALUE}
+        report: {REPORT-VALUE}
       env:
-        CC_TEST_REPORTER_ID: ${{ secrets.{YOUR-CODE-CLIMATE-REPORTER-ID} }}
-        GIT_BRANCH: {DESIRED-GIT-BRANCH}
-        GIT_COMMIT: {DESIRED-GIT-COMMIT-SHA}
+        CC_TEST_REPORTER_ID: {CC_TEST_REPORTER_ID-VALUE}
+        GIT_BRANCH: {GIT_BRANCH-VALUE}
+        GIT_COMMIT: {GIT_COMMIT-VALUE}
 ```
 
 **Note:** everything contained in single curly brackets (`{ }`) needs to be replaced by your desired values
 
 **Inputs:**
-|   Input  | Required |           Default           | Description                          |
-|:--------:|:--------:|:---------------------------:|--------------------------------------|
-| `format` |    No    |            `lcov`           | Format of your coverage report       |
-|  `ouput` |    No    | `coverage/codeclimate.json` | Output file for the upload operation |
-| `report` |    No    |     `coverage/lcov.info`    | Report file to upload                |
+|   Input  | Required |           Default           | Description                             |
+| :------: | :------: | :-------------------------: | :-------------------------------------- |
+| `format` |  `false` |            `lcov`           | Format of the coverage report to upload |
+| `output` |  `false` | `coverage/codeclimate.json` | Output file for the upload operation    |
+| `report` |  `false` |     `coverage/lcov.info`    | Report file to upload                   |
 
 **Environment variables:**
-|        Variable       | Required | Description                                 |
-|:---------------------:|:--------:|---------------------------------------------|
-| `CC_TEST_REPORTER_ID` |    Yes   | Reporter ID associated with your repository |
-|      `GIT_BRANCH`     |    Yes   | Branch you want your report to refer to     |
-|      `GIT_COMMIT`     |    Yes   | Commit SHA you want your report to refer to |
+|        Variable       | Required | Description                                   |
+| :-------------------: | :------: | :-------------------------------------------- |
+| `CC_TEST_REPORTER_ID` |  `true`  | Code Climate reporter ID                      |
+|      `GIT_BRANCH`     |  `true`  | Branch that the coverage report refers to     |
+|      `GIT_COMMIT`     |  `true`  | Commit SHA that the coverage report refers to |
