@@ -1,12 +1,12 @@
 # What is this action for?
 
-This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/)
+This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/).
 
 # How to use it?
 
 You can use the following code as a new _GitHub Actions Workflow_:
 
-```
+```yaml
 name: {YOUR-ACTION-NAME}
 on: [{YOUR-ACTION-EVENT}]
 jobs:
