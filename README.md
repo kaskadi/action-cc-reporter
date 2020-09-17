@@ -1,3 +1,7 @@
+[![](https://img.shields.io/github/workflow/status/kaskadi/action-cc-reporter/generate-docs?label=docs&logo=read-the-docs)](https://github.com/kaskadi/action-cc-reporter/actions?query=workflow%3Agenerate-docs)
+
+****
+
 # What is this action for?
 
 This action allows you to upload coverage report to [_Code Climate_](https://codeclimate.com/).
@@ -41,3 +45,4 @@ jobs:
 | `CC_TEST_REPORTER_ID` |  `true`  | Code Climate reporter ID                      |
 |      `GIT_BRANCH`     |  `true`  | Branch that the coverage report refers to     |
 |      `GIT_COMMIT`     |  `true`  | Commit SHA that the coverage report refers to |
+
