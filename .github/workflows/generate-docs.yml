@@ -22,3 +22,4 @@ jobs:
       uses: kaskadi/action-generate-docs@master
       with:
         type: action
+        template: docs/template.md
